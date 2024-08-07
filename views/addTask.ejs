@@ -8,8 +8,15 @@
 <body>
     <h1>Adicionar Tarefa</h1>
     <form action="/adicionar" method="post">
-        <input type="text" name="description" placeholder="Descrição da tarefa" required>
-        <button type="submit">Adicionar</button>
+        <input type="text" name="description" id="description" placeholder="Descrição da tarefa" required>
+        <button type="submit" id="submitButton" disabled>Adicionar</button>
     </form>
+    <script>
+        // Essa parte aqui é só pra ter alguma coisa de validação psor, desculpe se doer os olhos... 
+        const descriptionElement = document.getElementById('description')
+        descriptionElement.addEventListener('change', (e) => {
+            document.getElementById('submitButton').disabled = !descriptionElement.value ? "on" : false
+        })
+    </script>
 </body>
 </html>
